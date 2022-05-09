@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "datasets": {
+    "Topic1": [
+      {
+        "Topic on Rise": "Cause of the virus",
+        "Origin Country": "Democratic Republic of the Congo",
+        "Value": "1.16"
+      },
+      {
+        "Topic on Rise": "Cause of the virus",
+        "Origin Country": "Anglo",
+        "Value": "0.89"
+      },
+      {
+        "Topic on Rise": "Cause of the virus",
+        "Origin Country": "Uruguay",
+        "Value": "0.62"
+      }
+    ],
+    "Topic2": [
+      {
+        "Topic on Rise": "Stigma around the spread",
+        "Origin Country": "France",
+        "Value": "0.53"
+      },
+      {
+        "Topic on Rise": "Stigma around the spread",
+        "Origin Country": "Iraq",
+        "Value": "0.83"
+      },
+      {
+        "Topic on Rise": "Stigma around the spread",
+        "Origin Country": "Malaysia",
+        "Value": "0.53"
+      }
+    ],
+    "Topic3": [
+      {
+        "Topic on Rise": "Stigma about or by infected people ",
+        "Origin Country": "Senegal",
+        "Value": "1.36"
+      }
+    ],
+    "Topic4": [
+      {
+        "Topic on Rise": "Confirmed Symptoms",
+        "Origin Country": "Canada",
+        "Value": "0.56"
+      },
+      {
+        "Topic on Rise": "Confirmed Symptoms",
+        "Origin Country": "Nicaragua",
+        "Value": "0.53"
+      },
+      {
+        "Topic on Rise": "Confirmed Symptoms",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "1.6"
+      },
+      {
+        "Topic on Rise": "Confirmed Symptoms",
+        "Origin Country": "Iraq",
+        "Value": "0.97"
+      },
+      {
+        "Topic on Rise": "Confirmed Symptoms",
+        "Origin Country": "Nigeria",
+        "Value": "0.73"
+      },
+      {
+        "Topic on Rise": "Confirmed Symptoms",
+        "Origin Country": "Philippines",
+        "Value": "0.66"
+      }
+    ],
+    "Topic5": [
+      {
+        "Topic on Rise": "Modes of transmission",
+        "Origin Country": "Democratic Republic of the Congo",
+        "Value": "0.72"
+      },
+      {
+        "Topic on Rise": "Modes of transmission",
+        "Origin Country": "Thailand",
+        "Value": "4.34"
+      },
+      {
+        "Topic on Rise": "Modes of transmission",
+        "Origin Country": "United States of America",
+        "Value": "0.55"
+      },
+      {
+        "Topic on Rise": "Modes of transmission",
+        "Origin Country": "Philippines",
+        "Value": "0.66"
+      }
+    ],
+    "Topic6": [
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Colombia",
+        "Value": "11.35"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Brazil",
+        "Value": "1.91"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Nicaragua",
+        "Value": "0.75"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "5.06"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Uruguay",
+        "Value": "2.54"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Egypt",
+        "Value": "4.75"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Iraq",
+        "Value": "1.15"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Morocco",
+        "Value": "1.64"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Yemen",
+        "Value": "1.14"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Spain",
+        "Value": "3.05"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "India",
+        "Value": "1.36"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Malaysia",
+        "Value": "0.62"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Philippines",
+        "Value": "0.51"
+      },
+      {
+        "Topic on Rise": "Transmission settings",
+        "Origin Country": "Senegal",
+        "Value": "1.35"
+      }
+    ],
+    "Topic7": [
+      {
+        "Topic on Rise": "Immunity",
+        "Origin Country": "Indonesia",
+        "Value": "2.35"
+      },
+      {
+        "Topic on Rise": "Immunity",
+        "Origin Country": "Nicaragua",
+        "Value": "0.71"
+      },
+      {
+        "Topic on Rise": "Immunity",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "0.68"
+      }
+    ],
+    "Topic8": [
+      {
+        "Topic on Rise": "COVID-19 Variants",
+        "Origin Country": "Iraq",
+        "Value": "0.58"
+      },
+      {
+        "Topic on Rise": "COVID-19 Variants",
+        "Origin Country": "Malta",
+        "Value": "0.67"
+      },
+      {
+        "Topic on Rise": "COVID-19 Variants",
+        "Origin Country": "Malaysia",
+        "Value": "1.15"
+      },
+      {
+        "Topic on Rise": "COVID-19 Variants",
+        "Origin Country": "Nicaragua",
+        "Value": "0.98"
+      },
+      {
+        "Topic on Rise": "COVID-19 Variants",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "0.6"
+      },
+      {
+        "Topic on Rise": "COVID-19 Variants",
+        "Origin Country": "Philippines",
+        "Value": "1.74"
+      }
+    ],
+    "Topic9": [
+      {
+        "Topic on Rise": "Demographic vulnerability & risks",
+        "Origin Country": "Spain ",
+        "Value": "0.78"
+      },
+      {
+        "Topic on Rise": "Demographic vulnerability & risks",
+        "Origin Country": "Indonesia",
+        "Value": "1.28"
+      },
+      {
+        "Topic on Rise": "Demographic vulnerability & risks",
+        "Origin Country": "Kenya",
+        "Value": "3.95"
+      },
+      {
+        "Topic on Rise": "Demographic vulnerability & risks",
+        "Origin Country": "Malaysia",
+        "Value": "0.76"
+      }
+    ],
+    "Topic10": [
+      {
+        "Topic on Rise": "Impact on mental health",
+        "Origin Country": "Senegal",
+        "Value": "13.33"
+      },
+      {
+        "Topic on Rise": "Impact on mental health",
+        "Origin Country": "Nicaragua",
+        "Value": "0.51"
+      }
+    ],
+    "Topic11": [
+      {
+        "Topic on Rise": "Current treatments",
+        "Origin Country": "Jordan",
+        "Value": "0.71"
+      },
+      {
+        "Topic on Rise": "Current treatments",
+        "Origin Country": "Mexico",
+        "Value": "4.62"
+      },
+      {
+        "Topic on Rise": "Current treatments",
+        "Origin Country": "Nicaragua ",
+        "Value": "0.81"
+      },
+      {
+        "Topic on Rise": "Current treatments",
+        "Origin Country": "Malaysia",
+        "Value": "0.75"
+      },
+      {
+        "Topic on Rise": "Current treatments",
+        "Origin Country": "Philippines",
+        "Value": "0.61"
+      },
+      {
+        "Topic on Rise": "Current treatments",
+        "Origin Country": "Nigeria",
+        "Value": "5.27"
+      }
+    ],
+    "Topic12": [
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Angola",
+        "Value": "0.69"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Democratic Republic of the Congo",
+        "Value": "3.57"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Nigeria",
+        "Value": "0.82"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Canada",
+        "Value": "0.86"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Peru",
+        "Value": "1.55"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Switzerland",
+        "Value": "13.46"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Spain",
+        "Value": "0.52"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "France",
+        "Value": "7.2"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "The United Kingdom",
+        "Value": "0.99"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Iraq",
+        "Value": "1.53"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Jordan",
+        "Value": "1.58"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Morocco ",
+        "Value": "3.08"
+      },
+      {
+        "Topic on Rise": "COVID 19 Vaccine",
+        "Origin Country": "Malaysia",
+        "Value": "20.4"
+      }
+    ],
+    "Topic13": [
+      {
+        "Topic on Rise": "Health Care Workers & Vaccine",
+        "Origin Country": "Angola",
+        "Value": "0.61"
+      },
+      {
+        "Topic on Rise": "Health Care Workers & Vaccine",
+        "Origin Country": "Spain",
+        "Value": "0.51"
+      }
+    ],
+    "Topic14": [
+      {
+        "Topic on Rise": "General Vaccine Discussion",
+        "Origin Country": "Brazil",
+        "Value": "0.97"
+      }
+    ],
+    "Topic15": [
+      {
+        "Topic on Rise": "Science and R&D",
+        "Origin Country": "Democratic Republic of the Congo",
+        "Value": "1"
+      }
+    ],
+    "Topic16": [
+      {
+        "Topic on Rise": "Non-proven treatments",
+        "Origin Country": "Angola",
+        "Value": "0.64"
+      },
+      {
+        "Topic on Rise": "Non-proven treatments",
+        "Origin Country": "Iraq",
+        "Value": "5.71"
+      }
+    ],
+    "Topic17": [
+      {
+        "Topic on Rise": "Testing",
+        "Origin Country": "Angola",
+        "Value": "54.94"
+      },
+      {
+        "Topic on Rise": "Testing",
+        "Origin Country": "Indonesia",
+        "Value": "2.71"
+      },
+      {
+        "Topic on Rise": "Testing",
+        "Origin Country": "Nircaragua",
+        "Value": "1.4"
+      },
+      {
+        "Topic on Rise": "Testing",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "0.57"
+      }
+    ],
+    "Topic18": [
+      {
+        "Topic on Rise": "Contact tracing",
+        "Origin Country": "Kenya",
+        "Value": "0.71"
+      },
+      {
+        "Topic on Rise": "Contact tracing",
+        "Origin Country": "Morocco",
+        "Value": "0.55"
+      }
+    ],
+    "Topic19": [
+      {
+        "Topic on Rise": "Supportive care",
+        "Origin Country": "Egypt",
+        "Value": "0.74"
+      },
+      {
+        "Topic on Rise": "Supportive care",
+        "Origin Country": "Morocco",
+        "Value": "1.54"
+      },
+      {
+        "Topic on Rise": "Supportive care",
+        "Origin Country": "Malaysia",
+        "Value": "1.13"
+      },
+      {
+        "Topic on Rise": "Supportive care",
+        "Origin Country": "Philippines",
+        "Value": "0.72"
+      },
+      {
+        "Topic on Rise": "Supportive care",
+        "Origin Country": "Nicaragua",
+        "Value": "1.11"
+      },
+      {
+        "Topic on Rise": "Supportive care",
+        "Origin Country": "The United Kingdom",
+        "Value": "1.39"
+      },
+      {
+        "Topic on Rise": "Supportive care",
+        "Origin Country": "South Africa",
+        "Value": "9.55"
+      }
+    ],
+    "Topic20": [
+      {
+        "Topic on Rise": "Vaccine distribution and policies on access",
+        "Origin Country": "Peru",
+        "Value": "2.49"
+      },
+      {
+        "Topic on Rise": "Vaccine distribution and policies on access ",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "1.25"
+      }
+    ],
+    "Topic21": [
+      {
+        "Topic on Rise": "Personal measures",
+        "Origin Country": "Spain",
+        "Value": "0.61"
+      },
+      {
+        "Topic on Rise": "Personal measures",
+        "Origin Country": "Iraq",
+        "Value": "0.67"
+      },
+      {
+        "Topic on Rise": "Personal measures",
+        "Origin Country": "Nicaragua",
+        "Value": "0.54"
+      },
+      {
+        "Topic on Rise": "Personal measures",
+        "Origin Country": "Peru",
+        "Value": "2.29"
+      }
+    ],
+    "Topic22": [
+      {
+        "Topic on Rise": "Measures in public settings",
+        "Origin Country": "Iraq",
+        "Value": "0.85"
+      },
+      {
+        "Topic on Rise": "Measures in public settings",
+        "Origin Country": "Kenya",
+        "Value": "1.32"
+      },
+      {
+        "Topic on Rise": "Measures in public settings",
+        "Origin Country": "Senegal",
+        "Value": "0.74"
+      },
+      {
+        "Topic on Rise": "Measures in public settings",
+        "Origin Country": "Malaysia",
+        "Value": "0.52"
+      }
+    ],
+    "Topic23": [
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "Malta",
+        "Value": "18.16"
+      },
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "Switzerland",
+        "Value": "0.51"
+      },
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "Egypt",
+        "Value": "0.56"
+      },
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "Morocco",
+        "Value": "3.3"
+      },
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "Yemen",
+        "Value": "0.78"
+      },
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "Malaysia",
+        "Value": "2.04"
+      },
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "Philippines",
+        "Value": "4.13"
+      },
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "Nicaragua",
+        "Value": "3.69"
+      },
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "1.3"
+      },
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "Uruguay",
+        "Value": "0.59"
+      },
+      {
+        "Topic on Rise": "Travel measures",
+        "Origin Country": "USA",
+        "Value": "0.78"
+      }
+    ],
+    "Topic24": [
+      {
+        "Topic on Rise": "Reduction of domestic movement",
+        "Origin Country": "Brazil",
+        "Value": "2.25"
+      },
+      {
+        "Topic on Rise": "Reduction of domestic movement",
+        "Origin Country": "Colombia",
+        "Value": "1.96"
+      },
+      {
+        "Topic on Rise": "Reduction of domestic movement",
+        "Origin Country": "Mexico",
+        "Value": "0.51"
+      },
+      {
+        "Topic on Rise": "Reduction of domestic movement",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "2.77"
+      },
+      {
+        "Topic on Rise": "Reduction of domestic movement",
+        "Origin Country": "Iraq",
+        "Value": "4.32"
+      },
+      {
+        "Topic on Rise": "Reduction of domestic movement",
+        "Origin Country": "Morocco",
+        "Value": "1.39"
+      },
+      {
+        "Topic on Rise": "Reduction of domestic movement",
+        "Origin Country": "Malaysia",
+        "Value": "1.49"
+      },
+      {
+        "Topic on Rise": "Reduction of domestic movement",
+        "Origin Country": "Philippines",
+        "Value": "1.97"
+      }
+    ],
+    "Topic25": [
+      {"Topic on Rise": "Faith", "Origin Country": "Canada", "Value": "0.65"},
+      {
+        "Topic on Rise": "Faith",
+        "Origin Country": "Nicaraguay",
+        "Value": "0.91"
+      },
+      {"Topic on Rise": "Faith", "Origin Country": "Peru", "Value": "1.89"},
+      {
+        "Topic on Rise": "Faith",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "4.03"
+      },
+      {"Topic on Rise": "Faith", "Origin Country": "Yemen", "Value": "35.93"},
+      {"Topic on Rise": "Faith", "Origin Country": "Egypt", "Value": "12.98"},
+      {"Topic on Rise": "Faith", "Origin Country": "Iraq", "Value": "3.85"},
+      {"Topic on Rise": "Faith", "Origin Country": "Jordan", "Value": "5.29"},
+      {
+        "Topic on Rise": "Faith",
+        "Origin Country": "Indonesia",
+        "Value": "1.48"
+      },
+      {"Topic on Rise": "Faith", "Origin Country": "Malaysia", "Value": "0.99"},
+      {
+        "Topic on Rise": "Faith",
+        "Origin Country": "Philippines",
+        "Value": "0.93"
+      },
+      {"Topic on Rise": "Faith", "Origin Country": "Malta", "Value": "0.52"},
+      {
+        "Topic on Rise": "Faith",
+        "Origin Country": "The United Kingdom",
+        "Value": "0.73"
+      },
+      {"Topic on Rise": "Faith", "Origin Country": "Nigeria", "Value": "2.52"}
+    ],
+    "Topic26": [
+      {
+        "Topic on Rise": "Industry & economic impact",
+        "Origin Country": "Brazil",
+        "Value": "0.65"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "0.91"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "Democratic Republic of the Congo",
+        "Value": "1.89"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "Kenya",
+        "Value": "4.03"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "Senegal",
+        "Value": "35.93"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "South Africa",
+        "Value": "12.98"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "France ",
+        "Value": "3.85"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "Malta ",
+        "Value": "5.29"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "The United Kingdom",
+        "Value": "1.48"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "India",
+        "Value": "0.99"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "Jordan",
+        "Value": "0.93"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "Morocco",
+        "Value": "0.52"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "Malaysia",
+        "Value": "0.73"
+      },
+      {
+        "Topic on Rise": "Industry & economic impact ",
+        "Origin Country": "Philippines",
+        "Value": "2.52"
+      }
+    ],
+    "Topic27": [
+      {
+        "Topic on Rise": "Environment",
+        "Origin Country": "Democratic Republic of the Congo",
+        "Value": "1.17"
+      },
+      {
+        "Topic on Rise": "Environment ",
+        "Origin Country": "Nigeria",
+        "Value": "0.62"
+      },
+      {
+        "Topic on Rise": "Environment ",
+        "Origin Country": "South Africa",
+        "Value": "2.09"
+      },
+      {
+        "Topic on Rise": "Environment ",
+        "Origin Country": "Malta",
+        "Value": "1.48"
+      },
+      {
+        "Topic on Rise": "Environment ",
+        "Origin Country": "Trinidad and Tobago",
+        "Value": "1.98"
+      },
+      {
+        "Topic on Rise": "Environment",
+        "Origin Country": "Yemen",
+        "Value": "0.79"
+      }
+    ],
+    "Topic28": [
+      {
+        "Topic on Rise": "Inequalities & Human Rights ",
+        "Origin Country": "Iraq",
+        "Value": "0.78"
+      }
+    ],
+    "Topic29": [
+      {"Topic on Rise": "Youth", "Origin Country": "France", "Value": "0.78"},
+      {
+        "Topic on Rise": "Youth",
+        "Origin Country": "Indonesia",
+        "Value": "0.78"
+      },
+      {"Topic on Rise": "Youth", "Origin Country": "Kenya", "Value": "0.78"},
+      {"Topic on Rise": "Youth", "Origin Country": "Mexico", "Value": "0.78"}
+    ],
+    "Topic30": [
+      {
+        "Topic on Rise": "Statistics & Data",
+        "Origin Country": "Democratic Republic of the Congo",
+        "Value": "0.65"
+      },
+      {
+        "Topic on Rise": "Statistics & Data",
+        "Origin Country": "Senegal",
+        "Value": "1.03"
+      },
+      {
+        "Topic on Rise": "Statistics & Data ",
+        "Origin Country": "Kenya",
+        "Value": "1.09"
+      },
+      {
+        "Topic on Rise": "Statistics & Data ",
+        "Origin Country": "Indonesia",
+        "Value": "0.55"
+      },
+      {
+        "Topic on Rise": "Statistics & Data ",
+        "Origin Country": "Thailand",
+        "Value": "0.56"
+      },
+      {
+        "Topic on Rise": "Statistics & Data ",
+        "Origin Country": "Iraq",
+        "Value": "0.94"
+      },
+      {
+        "Topic on Rise": "Statistics & Data ",
+        "Origin Country": "Morocco",
+        "Value": "1.4"
+      }
+    ],
+    "Topic31": [
+      {
+        "Topic on Rise": "Mis- and disinformation ",
+        "Origin Country": "Morocco",
+        "Value": "0.61"
+      },
+      {
+        "Topic on Rise": "Mis- and disinformation ",
+        "Origin Country": "Senegal",
+        "Value": "1.86"
+      },
+      {
+        "Topic on Rise": "Mis- and disinformation ",
+        "Origin Country": "USA",
+        "Value": "0.52"
+      }
+    ]
+  },
+  "vconcat": [
+    {
+      "hconcat": [
+        {
+          "title": "Cause of the virus",
+          "data": {"name": "Topic1"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Stigma around the spread",
+          "data": {"name": "Topic2"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Stigma about or by infected people ",
+          "data": {"name": "Topic3"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Confirmed Symptoms",
+          "data": {"name": "Topic4"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "title": "Modes of transmission",
+          "data": {"name": "Topic5"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Transmission settings",
+          "data": {"name": "Topic6"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Immunity",
+          "data": {"name": "Topic7"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "COVID-19 Variants ",
+          "data": {"name": "Topic8"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "title": "Demographic vulnerability & risks",
+          "data": {"name": "Topic9"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Impact on mental health",
+          "data": {"name": "Topic10"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Current treatments",
+          "data": {"name": "Topic11"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "COVID 19 Vaccine",
+          "data": {"name": "Topic12"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "title": "Health Care Workers & Vaccine",
+          "data": {"name": "Topic13"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "General Vaccine Discussion",
+          "data": {"name": "Topic14"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Science and R&D",
+          "data": {"name": "Topic15"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Non-proven treatments",
+          "data": {"name": "Topic16"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "title": "Testing",
+          "data": {"name": "Topic17"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Contact tracing",
+          "data": {"name": "Topic18"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Supportive care",
+          "data": {"name": "Topic19"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Vaccine distribution and policies on access",
+          "data": {"name": "Topic20"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "title": "Personal measures",
+          "data": {"name": "Topic21"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Measures in public settings",
+          "data": {"name": "Topic22"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Travel measures",
+          "data": {"name": "Topic23"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Reduction of domestic movement",
+          "data": {"name": "Topic24"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "title": "Faith",
+          "data": {"name": "Topic25"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Industry & economic impact",
+          "data": {"name": "Topic26"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Environment",
+          "data": {"name": "Topic27"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Inequalities & Human Rights",
+          "data": {"name": "Topic28"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "title": "Youth",
+          "data": {"name": "Topic29"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Statistics & Data ",
+          "data": {"name": "Topic30"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        },
+        {
+          "title": "Mis- and disinformation ",
+          "data": {"name": "Topic31"},
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Origin Country"},
+            "y": {"field": "Value", "type": "quantitative"},
+            "tooltip": {"field": "Value", "type": "quantitative"},
+            "color": {"field": "Origin Country"}
+          }
+        }
+      ]
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
